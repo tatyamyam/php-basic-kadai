@@ -10,27 +10,14 @@
 <body>
   <p>
     <?php
-    function sort_2way(&$array, $order = true) {
-      $length = count($array);
-
+    function sort_2way(&$array, $order = true)
+    {
       if ($order) {
         echo nl2br("昇順にソートします。" . PHP_EOL);
+        sort($array);
       } else {
         echo nl2br("降順にソートします。" . PHP_EOL);
-      }
-
-      for ($i = 0; $i < $length - 1; $i++) {
-        for ($j = 0; $j < $length - $i - 1; $j++) {
-          // 昇順または降順によって条件を変更
-          $condition = ($order) ? ($array[$j] > $array[$j + 1]) : ($array[$j] < $array[$j + 1]);
-
-          if ($condition) {
-            // 要素を交換
-            $temp = $array[$j];
-            $array[$j] = $array[$j + 1];
-            $array[$j + 1] = $temp;
-          }
-        }
+        rsort($array);
       }
     }
 
@@ -51,7 +38,6 @@
       echo nl2br($num . PHP_EOL);
     }
     ?>
-
   </p>
 </body>
 
